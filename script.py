@@ -1,31 +1,43 @@
 import matplotlib
 
 import matplotlib.pyplot as plt
-
+import math
 matplotlib.use('Agg')
-xAxis = list(range(-20,20))
+xAxis = list(range(0,64))
+...
 
-def parabola(xValues):
+xTenth = []
+
+for x in xAxis:
+
+  xTenth.append(x*0.1)
+
+xAxis = xTenth
+
+...
+def sign(xValues):
 
   yValues = []
 
   for x in xValues:
 
-    y = x*x
 
+    y = math.sin(x)
     yValues.append(y)
 
   return yValues
 
-yAxis = parabola(xAxis)
-sliceXAxis  = xAxis[5:35]
+yAxis = sign(xAxis)
 
-sliceYAxis  = yAxis[5:35]
-style = 'ro'
+sliceXAxis  = xAxis[:]
+
+sliceYAxis  = yAxis[:]
+
+style = 'b-'
 
 plt.plot(sliceXAxis , sliceYAxis , style)
 
-plt.axis([-10, 10, 0, 100])
+plt.axis([0, 6.4, -1, 1])
 
 filename = 'graph.png'
 
